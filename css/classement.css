@@ -1,0 +1,65 @@
+.classement-main {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.classement-description, .classement-selector, .classement-display {
+    border: solid 1px white;
+    gap: 1%;
+}
+
+.classement-main article {
+    width: 60%;
+    gap: 5%;
+
+}
+
+.classement-main h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.classement-selector select {
+    font-size: 30px;
+    color: white;
+    background-color: #1e1e24;
+}
+
+.classement-selector option {
+    font-size: 25px;
+
+    color: white;
+    background-color: #1e1e24;
+
+}
+
+.classement-display {
+    display: flex;
+    gap: 2%;
+    justify-content: center;
+}
+
+.classement-display div {
+    width: 50%;
+}
+
+.classement-month table td {
+    text-align: center;
+}
+
+.classement-month {
+    display: flex;
+    flex-direction: column;
+}
+.classement-month table {
+    background-color: #B97958;
+    border: solid white 3px;
+}
+.classement-month tbody tr td img {
+    width: 64px;
+    border-radius: 50%;
+}

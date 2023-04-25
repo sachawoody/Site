@@ -1,0 +1,326 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+
+* {
+  --black-color: black;
+  --bg-color: #1e1e24;
+  --text-color: white;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+  font-family: "Orbitron";
+}
+
+/* 
+    ------- NAV BAR
+*/
+
+nav {
+  margin: 0;
+  background-color: var(--black-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  /* width: auto; */
+}
+
+.nav-header a {
+  width: 128px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 90%;
+}
+
+nav img {
+  width: 32px;
+}
+
+.logo {
+  height: auto;
+  width: 128px;
+}
+
+.user-profile {
+  border-radius: 50%;
+}
+
+.btn-nav-account {
+  border: solid 3px var(--text-color);
+  border-radius: 10px;
+  color: var(--text-color);
+  font-size: 100%;
+}
+
+.btn-nav-search {
+  border: none;
+}
+
+
+
+
+.to-logout *{
+  max-width: 40px;
+  max-height: 40px;
+}
+
+/* 
+    ------- GRID DE JEUX
+*/
+
+.best-games {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  width: auto;
+}
+
+.best-games-title {
+  color: white;
+}
+
+.best-games button {
+  width: 50%;
+  height: 30px;
+  border-radius: 10px;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px var(--text-color);
+}
+
+.grid-best-games {
+  margin: 0;
+  display: grid;
+  grid-template-areas:
+    "game1 game2 game3"
+    "game4 game5 game6";
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  height: 100vh;
+}
+
+.grid-best-games div {
+  /* width: auto;
+  height: auto; */
+  background-color: #c4af9a;
+  color: #36382e !;
+  border: solid 1px var(--text-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.grid-best-games img {
+  width: 256px;
+  height: 256px;
+}
+
+/* 
+    ------- FOOTER
+*/
+
+.nav-footer {
+  background-color: var(--black-color);
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  /* bottom: 0; */
+  width: 100vw;
+  /* display: none; */
+}
+
+.nav-footer article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-footer a {
+  font-size: 2em;
+}
+
+/* 
+
+  RESPONSIVE
+
+
+*/
+
+/* MOBILE VERSION */
+@media only screen and (max-width: 830px) {
+  nav {
+    height: auto;
+    flex-direction: column;
+    gap: 1%;
+    padding: 1%;
+  }
+
+  .nav-header a {
+    padding: 2%;
+    font-size: 1.5rem;
+  }
+
+  .to-logo .to-search {
+    display: none;
+  }
+
+  nav img {
+    width: 32px;
+  }
+
+  .btn-nav-account {
+    font-size: 1.2rem;
+    padding: 2%;
+  }
+
+  .best-games {
+    width: 100%;
+  }
+
+  .grid-best-games {
+    grid-template-areas: "game1 game2";
+    gap: 5%;
+  }
+
+  .grid-best-games div {
+    width: auto;
+    height: auto;
+  }
+
+  .grid-best-games img {
+    width: auto;
+    height: 128px;
+  }
+
+  .nav-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    height: auto;
+  }
+
+  .nav-footer article {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5%;
+  }
+
+  .nav-footer a {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 830px) and (max-width: 1024px) {
+  nav {
+    gap: 1%;
+    padding: 1%;
+  }
+
+  .nav-header a {
+    padding: 2%;
+    font-size: 1.5rem;
+  }
+
+  nav img {
+    width: 32px;
+  }
+
+  .to-search,
+  .welcome-msg {
+    display: none;
+  }
+
+  .btn-nav-account {
+    font-size: 1.1rem;
+    padding: 2%;
+  }
+
+  .best-games {
+    width: 90%;
+  }
+
+  .grid-best-games {
+    grid-template-areas: "game1 game2 game3 game4";
+
+    /* height: auto; */
+    gap: 1%;
+  }
+
+  .grid-best-games div {
+    width: auto;
+    height: auto;
+  }
+
+  .grid-best-games img {
+    width: auto;
+    height: 150px;
+  }
+}
+/* 
+
+  FIN RESPONSIVE
+
+
+*/
+
+/* 
+    ------- AUTRES
+*/
+
+.modal-displayed {
+  display: block;
+}
+
+.modal-hidden {
+  display: none;
+}
+
+/* POUR CACHER DES MSG DE PREVENTIONS DE PHP (PAS DERREUR JUSTE UNE NOTICE) */
+header font {
+  display: none;
+}
+header br {
+  display: none;
+}
+
+button {
+  background-color: var(--black-color);
+  color: var(--text-color);
+  font-family: "Orbitron";
+}
+
+select {
+  font-family: "Orbitron";
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+a:visited {
+  color: var(--text-color);
+}
+
+.nav-header a:hover {
+  background-color: gray;
+}
+
+.grid-best-games div button:hover {
+  background-color: gray;
+  color: var(--text-color);
+  cursor: pointer;
+}
