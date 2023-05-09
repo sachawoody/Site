@@ -4,19 +4,22 @@ const gridBestGames = document.querySelector(".grid-best-games");
 function generaGridBestGames() {
   games.forEach((game) => {
     let name = game.charAt(0).toUpperCase() + game.slice(1); // mettre première lettre en maj
+    // création de la carte
     let gameCard = document.createElement("div");
     gameCard.className = `card-game-${game}`;
-
+    // ajout du titre et son contenu
     let gameTitle = document.createElement("h1");
-    gameTitle.textContent = `${name}`;
+    gameTitle.textContent = `${name}`; // ici je récupère le nom du jeu
 
     let imageGame = document.createElement("img");
-    imageGame.src = `../img/games/${game}.png`;
+    imageGame.src = `../img/games/${game}.png`; // je récupère dans mon dossier img/games le fichier en fonction du jeu
 
+    // création du bouton pour jouer
     let buttonStartGame = document.createElement("button");
     buttonStartGame.className = `btn-start-${game}`;
     buttonStartGame.textContent = `Y JOUER`;
 
+    // ajout des éléments à la carte
     gameCard.append(gameTitle);
     gameCard.append(imageGame);
     gameCard.append(buttonStartGame);
@@ -25,6 +28,7 @@ function generaGridBestGames() {
   });
 }
 
+// appelle de la fonction pour l'initialiser au chargement de la page
 generaGridBestGames();
 const startMastermind = document.querySelector(".btn-start-mastermind");
 const startMorpion = document.querySelector(".btn-start-morpion");
@@ -33,12 +37,15 @@ const startMorpion = document.querySelector(".btn-start-morpion");
 
 startMorpion.addEventListener("click", () => {
   console.log("Morpion launched!");
+  // pour cacher la grid de jeu au lancement
   const blockBestGames = document.querySelector(".best-games");
   blockBestGames.setAttribute("style", "display: none;");
   generateBoardMorpion();
 });
 
 function generateBoardMorpion() {
+  // génération du morpion ()
+  // ajouter les fonctions pour le jeu (cf. JS/Morpion Sacha)
   const pageHeader = document.querySelector("body");
   console.log(pageHeader.appendChild);
   const sectionGame = document.createElement("section");
@@ -64,6 +71,8 @@ function generateBoardMorpion() {
 
 // ------------ MASTERMIND ------------
 
+// initialisation de données nécessaires
+// Il est prévu plus tard de passer par le session storage voir local storage pour enregistrer une partie en cours pour que je le joueur puisse la reprendre en chemin
 var dataMastermind = {
   couleurs: ["black", "white", "yellow", "green", "blue", "red"],
   tourLeft: 12,
@@ -88,11 +97,12 @@ function createGameMastermind() {
     }
   }
   dataMastermind.combinaison = [];
-
+  // création de la combinaison secrète
   const combinaisonToFind = generateCombinaisonMastermind();
   if (combinaisonToFind) {
     // console.log(document.querySelector(".modal-game").innerHTML)
     const guessInput = document.querySelector(".input-area");
+    // création des évènements de drag n drop pour le mastermind
     guessInput.addEventListener("dragover", (e) => {
       e.preventDefault();
     });
@@ -100,6 +110,7 @@ function createGameMastermind() {
       e.preventDefault();
 
       if (guessInput.children.length == 4) {
+        // si il y a déjà 4 couleurs dans l'input je block l'ajout de couleurs
         const boxUndrag = document.querySelectorAll(".color-box");
         boxUndrag.forEach((box) => {
           box.setAttribute("draggable", "false");
@@ -128,6 +139,7 @@ function generateCombinaisonMastermind() {
   let toAdd = [];
 
   for (var i = 0; i < 4; i++) {
+    // à partir de mon tableau de couleurs, j'en choisi 1 aléatoirement
     toAdd.push(choices[Math.floor(Math.random() * choices.length)]);
   }
 
@@ -143,7 +155,7 @@ function startGameMastermind() {
       document.querySelectorAll(".color-box-dropped")
     ).map((box) => box.style.backgroundColor);
     console.log(toCheck);
-
+    // ici je fais une condition ternaire afin de ne pas prendre en compte le clique du bouton soumettre s'il n'y a pas 4 couleurs dans l'input
     toCheck.length < 4
       ? console.log("ne pas prendre en compte")
       : sendTourMastermind(toCheck); // condition ternaire
@@ -162,6 +174,7 @@ function compareCombinaisonMastermind(playerTry) {
     white: 0,
     black: 0,
   };
+  // ici j'initialise la répartition des pions bien placés, mal placés
   for (let i = 0; i < playerTry.length; i++) {
     if (dataMastermind.combinaison.includes(playerTry[i])) {
       if (dataMastermind.combinaison[i] == playerTry[i]) {
@@ -181,6 +194,7 @@ function compareCombinaisonMastermind(playerTry) {
     `Très bien, voici le résultat de la comparaison :\nIl y a ${result.green} pion(s) de la bonne couleur et bien placé(s).\nIl y a ${result.white} pion(s) de la bonne couleur mais mal placé(s).\nIl y a ${result.black} pion(s) de la mauvaise couleur.`
   );
 
+  // je récupère les trous pour lesquels je vais devoir changer les couleurs (pour que je le joueur ait une vue sur l'avancé de ses essais)
   const lapAreaSubmitSwapOne = document.querySelector(
     `.area-box${dataMastermind.tourLeft}-color-box-area1`
   );
@@ -193,6 +207,8 @@ function compareCombinaisonMastermind(playerTry) {
   const lapAreaSubmitSwapFour = document.querySelector(
     `.area-box${dataMastermind.tourLeft}-color-box-area4`
   );
+
+  // j'attribue à chaque trou la couleur correspondante
 
   lapAreaSubmitSwapOne.setAttribute(
     "style",
@@ -230,6 +246,7 @@ function compareCombinaisonMastermind(playerTry) {
   // const lapAreaResultSwap = document.querySelector(`.lap-area-result-${data.tourLeft}`)
   // lapAreaResultSwap.textContent = `${result.green} ${result.white} ${result.black}`
 
+  // je fais de même pour la répartition des pions biens / mal placés
   const lapAreaResultSwapOne = document.querySelector(
     `.area-box${dataMastermind.tourLeft}-color-box-area1-result`
   );
@@ -240,8 +257,11 @@ function compareCombinaisonMastermind(playerTry) {
     `.area-box${dataMastermind.tourLeft}-color-box-area3-result`
   );
 
+  // je diminue le nombre de tours restants de 1
   dataMastermind.tourLeft = dataMastermind.tourLeft - 1;
 
+  // maintenant je fais la vérification de condition de victoire
+  // si les 4 pions sont verts, alors le joueur gagne la partie
   if (result.green == 4) {
     lapAreaResultSwapOne.textContent = result.green;
     lapAreaResultSwapOne.setAttribute(
@@ -279,6 +299,7 @@ function compareCombinaisonMastermind(playerTry) {
     // Faire une alerte car le joueur vient de gagner la partie !
     // alert(`La partie est désormais terminée, vous la remportez en ${12 - (dataMastermind.tourLeft)} tours !`)
     console.log("Partie finie, le joueur gagne la partie.");
+    // j'appelle cette fonction pour ajouter le score au joueur
     ajouterScore(15 + dataMastermind.tourLeft * 2);
 
     alert(
@@ -286,12 +307,15 @@ function compareCombinaisonMastermind(playerTry) {
         15 + dataMastermind.tourLeft * 2
       } points!\nFermeture du jeu dans 5 secondes.`
     );
+
+    // je fais un setTimeout() afin de fermer la modal de jeu à la fin de la partie
     setTimeout(() => {
       document.location.href = "http://localhost/Site-master/views/index.php";
     }, 5000);
     return;
   }
 
+  // si le joueur n'a plus d'essais, alors la partie se termine
   if (dataMastermind.tourLeft == 0) {
     lapAreaResultSwapOne.textContent = result.green;
     lapAreaResultSwapOne.setAttribute(
@@ -327,6 +351,7 @@ function compareCombinaisonMastermind(playerTry) {
     );
     // Faire une alert car le joueur vient de perdre la partie !
     // alert(`La partie est désormais terminée, vous avez perdu..`)
+
     console.log("Partie finie, le joueur perd la partie.");
     ajouterScore(15);
     alert(
@@ -337,6 +362,7 @@ function compareCombinaisonMastermind(playerTry) {
     }, 5000);
     return;
   } else {
+    // Dans ce cas là, le joueur continue de jouer
     // Modifier le text area pour indiquer le nombre de tours restant (au cas ou il ne sait pas lire l'affichage)
     const guessInput = document.querySelector(".input-area");
     guessInput.innerHTML = "";
@@ -393,8 +419,10 @@ function compareCombinaisonMastermind(playerTry) {
 }
 
 function ajouterScore(score) {
+  // création d'une requête XML afin d'envoyer des informations à mon php
   const req = new XMLHttpRequest();
   req.open("POST", "./ajouter_score.php", true);
+  // méthode post ici car j'envoie des informations
   req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   console.log("score to add :", score);
   req.send("score=" + score);

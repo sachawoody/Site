@@ -41,16 +41,13 @@ include('../models/_classes.php');
             <input type="text" name="form_pseudo" placeholder="Votre pseudo sera visible par les autres joueurs." required>
 
             <label for="form_mail">Mail : </label>
-            <input type="text" name="form_mail" placeholder="me@domaine.com" required>
+            <input type="text" name="form_mail" placeholder="Ex: nomprenom@xxx.com" required>
 
             <label for="form_mail_conf">Confirmation du mail : </label>
             <input type="text" name="form_mail_conf" required>
 
             <label for="form_password">Mot de passe:</label>
-            <input type="password" name="form_password" required>
-
-            <label for="form_password_conf">Confirmation du mot de passe :</label>
-            <input type="password" name="form_password_conf" required>
+            <input type="password" name="form_password" placeholder="123456"  required>
 
             <input type="submit" value="S'inscrire">
         </form>

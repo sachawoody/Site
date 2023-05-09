@@ -15,7 +15,6 @@ if (!empty($_POST["form_connexion"])) {
 
         $user = $select->fetch(PDO::FETCH_ASSOC);
 
-        // Permet de vérifier le hash par rapport au mot de passe saisi
         if ($_POST["form_password"] == $user['password_utilisateur']) {
 
             // On affecte les données de notre utilisateur dans notre super globale $_SESSION

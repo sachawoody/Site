@@ -34,11 +34,11 @@ include('../models/connect.php');
 
             <label for="form_email">Email:</label>
 
-            <input type="text" name="form_email" id="form_email" placeholder="Ex: nomprenom@fournisseur.com" required>
+            <input type="text" name="form_email" id="form_email" placeholder="Ex: nomprenom@xxx.com" required>
 
             <label for="form_password">Mot de passe:</label>
 
-            <input type="password" name="form_password" id="form_password" placeholder="1234" required>
+            <input type="password" name="form_password" id="form_password" placeholder="123456" required>
 
             <input type="submit" value="Se connecter">
 

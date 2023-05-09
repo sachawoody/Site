@@ -10,10 +10,6 @@ ORDER BY parties_utilisateur DESC;")->fetchAll(PDO::FETCH_ASSOC);
 // Faire une requête pour récupérer le nom de tout les jeux disponibles
 $jeux = $db->query("SELECT * FROM jeux
 ;")->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-
 ?>
 
 <!DOCTYPE html>
