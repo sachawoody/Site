@@ -61,10 +61,7 @@ nav img {
   border: none;
 }
 
-
-
-
-.to-logout *{
+.to-logout * {
   max-width: 40px;
   max-height: 40px;
 }
@@ -288,7 +285,6 @@ nav img {
   display: none;
 }
 
-/* POUR CACHER DES MSG DE PREVENTIONS DE PHP (PAS DERREUR JUSTE UNE NOTICE) */
 header font {
   display: none;
 }
