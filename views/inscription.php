@@ -5,41 +5,81 @@ include('../models/_classes.php');
 
 
 ?>
-<h1>Inscription</h1>
 
-<form action="../controllers/controller_inscription.php" method="post">
 
-    <input type="hidden" name="form_inscription" value="1">
 
-    <label for="form_pseudo">Pseudo : </label>
-    <input type="text" name="form_pseudo" placeholder="Votre pseudo sera visible par les autres joueurs." required>
+<!DOCTYPE html>
+<html lang="fr">
 
-    <label for="form_mail">Mail : </label>
-    <input type="text" name="form_mail" placeholder="me@domaine.com" required>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classements</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/classement.css">
 
-    <label for="form_mail_conf">Confirmation du mail : </label>
-    <input type="text" name="form_mail_conf" required>
+</head>
 
-    <label for="form_password">Mot de passe:</label>
-    <input type="password" name="form_password" required>
+<body>
 
-    <label for="form_password_conf">Confirmation du mot de passe :</label>
-    <input type="password" name="form_password_conf" required>
+    <header>
+        <?php
+        include('./_navBar.php');
+        ?>
 
-    <input type="submit" value="S'inscrire">
-</form>
-<a href="../views/connexion.php">Déjà un compte ? Connectez-vous ici !</a>
+    </header>
 
-<style>
-    body {
-        background-color: #f9f9f9;
-        font-family: Arial, sans-serif;
+    <main>
+        <h1>Inscription</h1>
+
+        <form action="../controllers/controller_inscription.php" method="post">
+
+            <input type="hidden" name="form_inscription" value="1">
+
+            <label for="form_pseudo">Pseudo : </label>
+            <input type="text" name="form_pseudo" placeholder="Votre pseudo sera visible par les autres joueurs." required>
+
+            <label for="form_mail">Mail : </label>
+            <input type="text" name="form_mail" placeholder="me@domaine.com" required>
+
+            <label for="form_mail_conf">Confirmation du mail : </label>
+            <input type="text" name="form_mail_conf" required>
+
+            <label for="form_password">Mot de passe:</label>
+            <input type="password" name="form_password" required>
+
+            <label for="form_password_conf">Confirmation du mot de passe :</label>
+            <input type="password" name="form_password_conf" required>
+
+            <input type="submit" value="S'inscrire">
+        </form>
+        <a href="../views/connexion.php">Déjà un compte ? Connectez-vous ici !</a>
+
+
+    </main>
+
+    <footer>
+        <?php
+        include('./_footer.php');
+        ?>
+    </footer>
+
+</body>
+
+</html>
+
+
+
+<style scoped>
+    main {
+        background-color: #B97958;
+        height: auto;
     }
 
     h1 {
         text-align: center;
-        margin-top: 50px;
-        color: #333;
+        color: white;
     }
 
     form {
