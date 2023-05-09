@@ -133,3 +133,60 @@
 /* [draggable] {
     user-select: none;
 } */
+
+/* 
+
+  RESPONSIVE
+
+
+*/
+
+/* MOBILE VERSION */
+@media only screen and (max-width: 600px) {
+
+  .mastermind {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .color-box-area, .color-box-area-result, .color-box {
+    width: 15px;
+    height: 15px;
+  }
+
+  .box-with-pawns {
+    width: auto;
+
+  }
+
+  .result-combinaison button, .result-combinaison p {
+    font-size: 10px;
+  }
+
+  .board-guess {
+    width: auto;
+    gap: 0;
+    padding: 0;
+  }
+
+  .input-area {
+    width: auto;
+  }
+
+  .result-combinaison p {
+    display: none;
+  }
+  .lap-area {
+    gap: 10px;
+  }
+}
+
+@media only screen and (min-width: 830px) and (max-width: 1024px) {
+  
+}
+/* 
+
+  FIN RESPONSIVE
+
+
+*/
