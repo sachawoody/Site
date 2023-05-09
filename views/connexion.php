@@ -2,36 +2,71 @@
 include('../models/connect.php');
 
 ?>
-<h1>Connexion</h1>
 
-<form method="post" action="../controllers/controller_connexion.php">
+<!DOCTYPE html>
+<html lang="fr">
 
-    <input type="hidden" name="form_connexion" value="1">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classements</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/classement.css">
 
-    <label for="form_email">Email:</label>
+</head>
 
-    <input type="text" name="form_email" id="form_email" placeholder="Ex: nomprenom@fournisseur.com" required>
+<body>
 
-    <label for="form_password">Mot de passe:</label>
+    <header>
+        <?php
+        include('./_navBar.php');
+        ?>
 
-    <input type="password" name="form_password" id="form_password" placeholder="1234" required>
+    </header>
 
-    <input type="submit" value="Se connecter">
+    <main>
+        <h1>Connexion</h1>
 
-</form>
+        <form method="post" action="../controllers/controller_connexion.php">
 
-<a href="../views/inscription.php">Pas de compte ? Venez en créer un ici !</a>
+            <input type="hidden" name="form_connexion" value="1">
+
+            <label for="form_email">Email:</label>
+
+            <input type="text" name="form_email" id="form_email" placeholder="Ex: nomprenom@fournisseur.com" required>
+
+            <label for="form_password">Mot de passe:</label>
+
+            <input type="password" name="form_password" id="form_password" placeholder="1234" required>
+
+            <input type="submit" value="Se connecter">
+
+        </form>
+
+        <a href="../views/inscription.php">Pas de compte ? Venez en créer un ici !</a>
+
+    </main>
+
+    <footer>
+        <?php
+        include('./_footer.php');
+        ?>
+    </footer>
+
+</body>
+
+</html>
 
 <style>
-    body {
-        background-color: #f9f9f9;
-        font-family: Arial, sans-serif;
+    main {
+        background-color: #B97958;
+        height: auto;
     }
 
     h1 {
         text-align: center;
-        margin-top: 50px;
-        color: #333;
+        color: white;
     }
 
     form {
