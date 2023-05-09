@@ -280,6 +280,15 @@ function compareCombinaisonMastermind(playerTry) {
     // alert(`La partie est désormais terminée, vous la remportez en ${12 - (dataMastermind.tourLeft)} tours !`)
     console.log("Partie finie, le joueur gagne la partie.");
     ajouterScore(15 + dataMastermind.tourLeft * 2);
+
+    alert(
+      `La partie est désormais terminée, vous obtenez ${
+        15 + dataMastermind.tourLeft * 2
+      } points!\nFermeture du jeu dans 5 secondes.`
+    );
+    setTimeout(() => {
+      document.location.href = "http://localhost/Site-master/views/index.php";
+    }, 5000);
     return;
   }
 
@@ -320,6 +329,12 @@ function compareCombinaisonMastermind(playerTry) {
     // alert(`La partie est désormais terminée, vous avez perdu..`)
     console.log("Partie finie, le joueur perd la partie.");
     ajouterScore(15);
+    alert(
+      `La partie est désormais terminée, vous obtenez ${15} points!\nFermeture du jeu dans 5 secondes.`
+    );
+    setTimeout(() => {
+      document.location.href = "http://localhost/Site-master/views/index.php";
+    }, 5000);
     return;
   } else {
     // Modifier le text area pour indiquer le nombre de tours restant (au cas ou il ne sait pas lire l'affichage)
